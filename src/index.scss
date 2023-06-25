@@ -8,6 +8,7 @@ html {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: var(--font-family);
 }
 
 #root {
@@ -15,7 +16,7 @@ html {
   inset: 0;
 
   display: grid;
-  grid-template-columns: var(--xs-spacing) repeat(8, 1fr) var(--xs-spacing);
+  grid-template-columns: var(--xs-spacing) repeat(9, 1fr) var(--xs-spacing);
   grid-template-rows: min-content 1fr;
   column-gap: var(--xs-spacing);
 
@@ -25,7 +26,7 @@ html {
 .bg {
   &__img {
     position: relative;
-    grid-column: 1/11;
+    grid-column: 1/12;
     grid-row: 2/3;
     height: 100%;
     background-image: url('./assets/img/Fightclub.png');

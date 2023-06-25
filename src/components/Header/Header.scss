@@ -1,5 +1,5 @@
 .header {
-    grid-column: 1/11;
+    grid-column: 1/12;
     grid-row: 1/2;
 
     &__border {
@@ -24,7 +24,6 @@
             flex-wrap: nowrap;
             justify-content: flex-end;
             color: var(--light);
-            font-family: var(--font-family);
             font-size: 2rem;
             text-transform: uppercase;
             white-space: nowrap;

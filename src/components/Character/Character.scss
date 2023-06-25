@@ -1,6 +1,6 @@
 .character {
     position: relative;
-    grid-column: 6/10;
+    grid-column: 7/11;
     grid-row: 2/3;
     z-index: 2;
     
@@ -14,6 +14,48 @@
 
     &__container {
         background-color: blueviolet;
+
+        & .container__fighter {
+            position: absolute;
+            inset: 0;
+            bottom: calc(25% + var(--md-spacing) + 2px);
+            background-image: url('../../assets/img/image_11.png');
+            background-position: center right;
+            background-size: contain;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--xs-spacing) var(--xs-spacing) 0 0;
+        }
+
+        & .fighter__detail {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-end;
+            gap: var(--xxs-spacing);
+            width: 100%;
+
+            & .detail__name, .detail__id {
+                color: var(--light);
+                font-weight: normal;
+                text-transform: uppercase;
+            }
+
+            & .detail__name {
+                font-size: 2.2rem;
+            }
+
+            & .detail__id {
+                font-size: 1.4rem;
+            }
+        }
+
+        & .fighter__sprite {
+            transform: scaleX(-1);
+        }
     }
 
     &__bg {
@@ -28,6 +70,6 @@
         width: 90%;
         height: 25%;
         background-color: var(--light);
-        clip-path: polygon((35%/4) 0, 100% 0, 100% 100%, 0% 100%);
+        clip-path: polygon(calc(35% / 4) 0, 100% 0, 100% 100%, 0% 100%);
     }
 }

@@ -14,6 +14,16 @@ export default function SelectionGrid() {
         <div className="filters">
             
         </div>
+
+        <div className="slots">
+            <div className="slots__container">
+              {Array.from({ length: 5 }).map( (n, i) => {
+                  return (
+                      <Card key={i}></Card>
+                  );
+              })}
+            </div>
+        </div>
     </div>
     
   )

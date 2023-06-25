@@ -1,9 +1,15 @@
-import Fighter from "./components/Character/Character";
+import { useEffect } from "react"
+import Fighter from "./components/Character/Character"
 import Header from "./components/Header/Header"
 //import Navbar from "./components/Navbar/Navbar"
 import SelectionGrid from "./components/Selection/SelectionGrid"
 
 function App() {
+
+  useEffect(() => {
+    var myScreenOrientation = window.screen.orientation;
+    myScreenOrientation.lock("landscape");
+  }, []);
 
   return (
     <>
