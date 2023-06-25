@@ -1,0 +1,33 @@
+.character {
+    position: relative;
+    grid-column: 6/10;
+    grid-row: 2/3;
+    z-index: 2;
+    
+    &__container, &__bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        clip-path: polygon(35% 0, 100% 0, 100% 100%, 0% 100%);
+        border-right: 2px solid var(--light);
+    }
+
+    &__container {
+        background-color: blueviolet;
+    }
+
+    &__bg {
+        left: -2px;
+        background-color: var(--light);
+    }
+
+    &__stats {
+        bottom: 3.2rem;
+        right: -1.6rem;
+        position: absolute;
+        width: 90%;
+        height: 25%;
+        background-color: var(--light);
+        clip-path: polygon((35%/4) 0, 100% 0, 100% 100%, 0% 100%);
+    }
+}

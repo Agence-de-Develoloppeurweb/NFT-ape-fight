@@ -1,0 +1,8 @@
+.card {
+    aspect-ratio: 1/1;
+    background-color: var(--dark);
+
+    &__cursor {
+        clip-path: polygon(0 0, 100% 1%, 100% 50%, 50% 50%, 50% 100%, 0 100%);
+    }
+}

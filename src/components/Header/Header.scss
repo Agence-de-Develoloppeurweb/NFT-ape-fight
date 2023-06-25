@@ -1,0 +1,51 @@
+.header {
+    grid-column: 1/11;
+    grid-row: 1/2;
+
+    &__border {
+        height: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        &::before, &::after {
+            content: "";
+            height: 2px;
+            background-color: var(--light);
+        }
+    } 
+    
+    &__container {
+        padding: 1rem 0;
+        overflow: hidden;
+
+        h1 {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: flex-end;
+            color: var(--light);
+            font-family: var(--font-family);
+            font-size: 2rem;
+            text-transform: uppercase;
+            white-space: nowrap;
+
+            span {
+                animation: text-parade 5s infinite linear;
+            }
+        }
+    }
+
+        &:hover span {
+            animation-play-state: paused;
+        }
+}
+
+@keyframes text-parade {
+    from {
+        transform: translateX(100%);
+    }
+    
+    to {
+        transform: translateX(0);
+    }
+}

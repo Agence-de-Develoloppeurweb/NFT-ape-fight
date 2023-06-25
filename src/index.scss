@@ -1,0 +1,54 @@
+@import "./assets/style/variables";
+@import "./assets/style/font";
+html {
+  font-size: 62.5%;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  position: absolute;
+  inset: 0;
+
+  display: grid;
+  grid-template-columns: var(--xs-spacing) repeat(8, 1fr) var(--xs-spacing);
+  grid-template-rows: min-content 1fr;
+  column-gap: var(--xs-spacing);
+
+  background-color: var(--dark);
+}
+
+.bg {
+  &__img {
+    position: relative;
+    grid-column: 1/11;
+    grid-row: 2/3;
+    height: 100%;
+    background-image: url('./assets/img/Fightclub.png');
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+
+    //==== ADD BLUR AND BACKGROUND OPACITY ?
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(51, 51, 51, 0.2);
+      //backdrop-filter: blur(1.5px);
+    }
+  }
+
+  @for $i from 1 through 5 {
+    &__col:nth-of-type(#{$i}) {
+      z-index: 1;
+      grid-column: #{$i + 1}/#{$i + 2};
+      grid-row: 1/3;
+      background-color: rgba(246, 246, 246, 0.2);
+    }
+  }
+}
