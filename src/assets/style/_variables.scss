@@ -1,19 +1,14 @@
 :root {
-  --gold: #edb116;
   --dark: #141519;
   --light: #ffffff;
-  --fade: rgba(246, 246, 246, 0.1);
-  --diamond: radial-gradient(
-    81.43% 81.43% at 50% 50%,
-    #4936bc 0%,
-    rgba(24, 1, 165, 0.76) 100%,
-    rgba(24, 1, 165, 0.56) 100%
-  );
+  --gold: #edb116;
   --red: #ef3e3e;
   --green: #36bc64;
   --pink: #d748c9;
   --purple: #838cde;
   --blue: #0012ff;
+
+  --fade: rgba(246, 246, 246, 0.1);
 
   --font-family: "Edition 12";
 

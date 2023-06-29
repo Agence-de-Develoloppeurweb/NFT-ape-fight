@@ -1,6 +1,7 @@
 .header {
     grid-column: 1/12;
     grid-row: 1/2;
+    z-index: 10;
 
     &__border {
         height: 10px;
@@ -16,27 +17,40 @@
     } 
     
     &__container {
-        padding: 1rem 0;
-        overflow: hidden;
+        position: relative;
+        display: grid;
+        grid-template-columns: var(--xs-spacing) repeat(9, 1fr) var(--xs-spacing);
+        column-gap: var(--xs-spacing);
 
         h1 {
+            grid-column: 1/9;
             display: flex;
             flex-wrap: nowrap;
             justify-content: flex-end;
+            align-items: center;
             color: var(--light);
             font-size: 2rem;
             text-transform: uppercase;
             white-space: nowrap;
+            overflow: hidden;
 
             span {
                 animation: text-parade 5s infinite linear;
+
+                .gold {
+                    color: var(--gold);
+                }
+            }
+
+            &:hover span {
+                animation-play-state: paused;
             }
         }
-    }
 
-        &:hover span {
-            animation-play-state: paused;
+        button {
+            grid-column: 9/11;
         }
+    }
 }
 
 @keyframes text-parade {

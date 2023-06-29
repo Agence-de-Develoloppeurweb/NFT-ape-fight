@@ -1,15 +1,18 @@
-import { useEffect } from "react"
+import { TabsProvider } from "./contexts/TabsContext"
+import { SelectionProvider } from "./contexts/SelectionContext"
+
 import Fighter from "./components/Character/Character"
 import Header from "./components/Header/Header"
-//import Navbar from "./components/Navbar/Navbar"
-import SelectionGrid from "./components/Selection/SelectionGrid"
+import Selection from "./components/Selection/Selection"
+import { useEffect } from "react"
 
 function App() {
 
-  useEffect(() => {
-    var myScreenOrientation = window.screen.orientation;
-    myScreenOrientation.lock("landscape");
-  }, []);
+  useEffect( () => {
+    screen.orientation.lock('landscape');
+    var element = document.querySelector("#root");
+    element.requestFullscreen();
+  })
 
   return (
     <>
@@ -19,24 +22,16 @@ function App() {
           );        
       })} 
       <div className="bg__img"></div>
-      <Header>Select fighter</Header>
-      <SelectionGrid></SelectionGrid>
-      <Fighter></Fighter>
 
-      {/* <div className="background">
-        <Header>Select fighter</Header>
-        <div className="background__img"></div>
-        {Array.from({ length: 5 }).map( (n, i) => {
-            return (
-              <div key={i} className="background__col"></div>
-            );        
-        })}
-      </div>
-      <div className="container">
-        <SelectionGrid></SelectionGrid>
-      </div> */}
+      <SelectionProvider>
+        <TabsProvider>
+          <Header />
+          <Selection />
+        </TabsProvider>
+        
+        <Fighter />
+      </SelectionProvider>
       
-      {/* <Navbar></Navbar> */}
     </>
   )
 }

@@ -1,0 +1,11 @@
+.stat {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 4px;
+    font-size: 1.2rem;
+
+    &__brackets {
+        color: var(--green);
+    }
+}

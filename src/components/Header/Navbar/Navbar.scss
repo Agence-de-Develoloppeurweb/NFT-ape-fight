@@ -1,0 +1,69 @@
+.navbar {
+    grid-column: 9/11;
+
+    &__btn {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        padding: 0.8rem;
+        background-color: var(--fade);
+        color: var(--light);
+        appearance: none;
+        border: 2px solid white;
+        border-width: 0 2px;
+        overflow: hidden;
+
+        &:not(.current) {
+            display: none;
+        }
+
+        &.active {
+            background: linear-gradient(to bottom right, #4936BC 0%, rgba(24, 1, 165, 0.76) 25%, rgba(24, 1, 165, 0.56) 50%) bottom right / 50% 50% no-repeat, linear-gradient(to bottom left, #4936BC 0%, rgba(24, 1, 165, 0.76) 25%, rgba(24, 1, 165, 0.56) 50%) bottom left / 50% 50% no-repeat, linear-gradient(to top left, #4936BC 0%, rgba(24, 1, 165, 0.76) 25%, rgba(24, 1, 165, 0.56) 50%) top left / 50% 50% no-repeat, linear-gradient(to top right, #4936BC 0%, rgba(24, 1, 165, 0.76) 25%, rgba(24, 1, 165, 0.56) 50%) top right / 50% 50% no-repeat;
+            box-shadow: 0px 0px 50px 10px rgba(0, 18, 255, 0.25);
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+                animation: shine 5s ease-in-out infinite;
+                filter: blur(10px);
+            }
+        }
+
+        img {
+            aspect-ratio: 1/1;
+            max-height: 30px;
+        }
+
+        &.--back {
+            display: flex;
+            position: absolute;
+            grid-column: 2/3;
+            height: 100%;
+            background-color: var(--dark);
+        }
+
+        &:last-child {
+            background: linear-gradient(to bottom right, #EDB116 0%, rgba(237, 177, 22, 0.56) 50%) bottom right / 50% 50% no-repeat, linear-gradient(to bottom left, #EDB116 0%, rgba(237, 177, 22, 0.56) 50%) bottom left / 50% 50% no-repeat, linear-gradient(to top left, #EDB116 0%, rgba(237, 177, 22, 0.56) 50%) top left / 50% 50% no-repeat, linear-gradient(to top right, #EDB116 0%, rgba(237, 177, 22, 0.56) 50%) top right / 50% 50% no-repeat;
+            box-shadow: 0px 0px 50px 10px rgba(237, 177, 22, 0.25);
+        }
+    }
+}
+
+@keyframes shine {
+    0% {
+        left: -100%;
+        transition-property: left;
+    }
+
+    #{calc(0.65 / (5 + 0.65) * 100%)}, 100% {
+        left: 100%;
+        transition-property: left;
+    }
+}

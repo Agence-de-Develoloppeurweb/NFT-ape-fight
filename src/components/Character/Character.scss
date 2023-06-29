@@ -1,6 +1,6 @@
 .character {
     position: relative;
-    grid-column: 7/11;
+    grid-column: 6/11;
     grid-row: 2/3;
     z-index: 2;
     
@@ -18,17 +18,23 @@
         & .container__fighter {
             position: absolute;
             inset: 0;
-            bottom: calc(25% + var(--md-spacing) + 2px);
-            background-image: url('../../assets/img/image_11.png');
-            background-position: center right;
-            background-size: contain;
-            background-repeat: no-repeat;
+            bottom: calc(25% + var(--xs-spacing) + 2px);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
             padding: var(--xs-spacing) var(--xs-spacing) 0 0;
         }
+
+        & .fighter__splashart {
+            position: absolute;
+            inset: 0;
+            background-position: center left;
+            background-size: contain;
+            background-repeat: no-repeat;
+            transform: scaleX(-1);
+            z-index: -1;
+        }        
 
         & .fighter__detail {
             display: flex;
@@ -39,6 +45,8 @@
             width: 100%;
 
             & .detail__name, .detail__id {
+                max-width: 65%;
+                text-align: right;
                 color: var(--light);
                 font-weight: normal;
                 text-transform: uppercase;
@@ -54,7 +62,13 @@
         }
 
         & .fighter__sprite {
+            min-height: 50%;
+            margin-right: var(--md-spacing);
             transform: scaleX(-1);
+
+            img {
+                height: 100%;
+            }
         }
     }
 
@@ -64,12 +78,86 @@
     }
 
     &__stats {
-        bottom: 3.2rem;
-        right: -1.6rem;
+        bottom: var(--xs-spacing);
+        right: calc(0px - var(--xs-spacing));
         position: absolute;
-        width: 90%;
+        width: 95%;
         height: 25%;
         background-color: var(--light);
         clip-path: polygon(calc(35% / 4) 0, 100% 0, 100% 100%, 0% 100%);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        overflow-x: auto;
+
+        & .stats__passive {
+            flex: 1;
+            height: 100%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: var(--xxs-spacing);
+
+            h3 {
+                font-size: 1.4rem;
+                text-align: right;
+                font-weight: normal;
+                text-transform: uppercase;
+            }
+
+            p {
+                display: none;
+            }
+        }
+
+        & .stats__line {
+            width: 2px;
+            min-width: 2px;
+            height: 100%;
+        }
+
+        & .stats__characteristics {
+            flex: 1;
+            height: 100%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: var(--xxs-spacing);
+            padding: var(--xxs-spacing);
+            align-self: center;
+            align-items: center;
+        }
+    }
+}
+
+.ReactModal__Overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+    background-color: rgb(20 21 25 / 40%) !important;
+
+    .ReactModal__Content {
+        inset: auto!important;
+        max-width: 50%;
+        text-transform: uppercase;
+        border-radius: 0!important;
+        text-align: center;
+
+        h3 {
+            font-size: 1.6rem;
+            font-weight: normal;
+        }
+
+        .underline {
+            margin: 10px auto 20px;
+            width: 50%;
+            height: 2px;
+            background-color: var(--dark);
+        }
+
+        p {
+            font-size: 1.2rem;
+        }
     }
 }

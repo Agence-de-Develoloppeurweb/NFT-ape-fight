@@ -1,0 +1,68 @@
+.selection__container {
+    z-index: 3;
+    grid-column: 2/7;
+    grid-row: 2/3;
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr min-content;
+    column-gap: var(--xs-spacing);
+    padding: var(--xs-spacing) 0;
+}
+
+.grid {
+    grid-column: 1/5;
+    grid-row: 1/2;
+    position: relative;
+    transform: translateX(-2px); // décale de -2 pour ne pas overflow les bordures de cards
+    width: calc(100% + 12px); // + 12 => +8 pour la scrollbar et +2 pour chaque côté
+    height: calc(100% + 4px); // +2 pour chaque côté
+    max-height: 128px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    //padding-right: calc( ((100% - 4*var(--xs-spacing)) / 5) + var(--xs-spacing) - 2px);
+    //width: calc(((100% - 3*var(--xs-spacing))) + var(--xs-spacing)/2 - 6px);
+    //padding-right: 4px;
+    //width: calc(((100% - 4*var(--xs-spacing)) / 5) * 4 + 3*var(--xs-spacing) + (2px + var(--xs-spacing)/2));
+    //width: calc(((100% - 4*var(--xs-spacing)) / 5) * 4 + 3*var(--xs-spacing) + (var(--xs-spacing)/2));
+    //max-height: calc( (100% + 3*var(--xs-spacing)) / 2);
+
+    &::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--light);
+    }
+
+    &__inset {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: min-content;
+        gap: var(--xs-spacing);
+        position: absolute;
+        inset: 0px;
+        padding: 4px;
+        transform: translateX(-2px); // décale de -2 pour ne pas overflow les bordures de cards
+    }
+}
+
+.slots {
+    position: relative;
+    grid-column: 1/6;
+    grid-row: 2/3;
+    //margin-bottom: var(--xs-spacing);
+
+    &__container {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, calc((100% - 4*var(--xs-spacing)) / 5));
+        gap: var(--xs-spacing);
+    }
+    z-index: 10;
+}
