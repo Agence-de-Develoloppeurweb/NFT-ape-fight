@@ -11,7 +11,7 @@ html {
   font-family: var(--font-family);
 }
 
-#root {
+#root .fullscreen {
   position: absolute;
   inset: 0;
 
@@ -50,6 +50,41 @@ html {
       grid-column: #{$i + 1}/#{$i + 2};
       grid-row: 1/3;
       background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+}
+
+.ReactModal__Overlay.fullscreen {
+  position: fixed;
+  inset: 0px;
+  z-index: 20;
+  background-color: var(--dark) !important;
+
+  .ReactModal__Content {
+    text-transform: uppercase;
+    border-radius: 0 !important;
+    text-align: center;
+    color: var(--light);
+    background-color: var(--dark)!important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      font-size: 2.4rem;
+      font-weight: normal;
+    }
+    
+    .underline {
+      margin: 10px auto 20px;
+      width: 50%;
+      height: 2px;
+      background-color: var(--light);
+    }
+    
+    p {
+      font-size: 1.4rem;
     }
   }
 }

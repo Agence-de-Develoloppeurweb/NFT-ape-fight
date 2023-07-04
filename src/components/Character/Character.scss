@@ -2,7 +2,6 @@
     position: relative;
     grid-column: 6/11;
     grid-row: 2/3;
-    z-index: 2;
     
     &__container, &__bg {
         position: absolute;
@@ -130,7 +129,9 @@
     }
 }
 
-.ReactModal__Overlay {
+.ReactModal__Overlay.passive {
+    position: fixed;
+    inset: 0px;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -3,7 +3,7 @@ import { SelectionContext } from '@/contexts/SelectionContext'
 import { stats } from '@/api'
 
 import Stat from './Stat/Stat'
-import Modal from 'react-modal'
+import Modal from '@/components/Modal/Modal'
 
 import Fighter from "@/assets/img/selected.png"
 import './Character.scss'
@@ -42,18 +42,6 @@ export default function Character() {
         >
           <h3>{fighters[selected].passive.name}</h3>
           <p>{fighters[selected].passive.description}</p>
-
-          <Modal
-            isOpen={modal}
-            ariaHideApp={false}
-            contentLabel="Passive name"
-          >
-            <>
-              <h3>{fighters[selected].passive.name}</h3>
-              <div className="underline"></div>
-              <p>{fighters[selected].passive.description}</p>
-            </>
-          </Modal>
         </div>
 
         <div className="stats__line" style={{backgroundColor: fighters[selected].bg}}></div>
@@ -66,6 +54,19 @@ export default function Character() {
           })}
         </div>
       </div>
+
+      <Modal
+        isOpen={modal}
+        setIsOpen={(i) => setModal(i)}
+        shouldCloseOnOverlayClick={true}
+        classes="passive"
+      >
+        <>
+          <h3>{fighters[selected].passive.name}</h3>
+          <div className="underline"></div>
+          <p>{fighters[selected].passive.description}</p>
+        </>
+      </Modal>
     </div>
   )
 }
