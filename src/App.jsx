@@ -27,7 +27,7 @@ function App() {
     <>
       <Modal
         isOpen={!isDesktop && disclaimer}
-        setIsOpen={(i) => handleDisclaimere(i)}
+        setIsOpen={(i) => handleDisclaimer(i)}
         classes="welcome"
       >
         <h1>NFT APE FIGHT</h1>
