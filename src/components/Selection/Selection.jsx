@@ -20,7 +20,6 @@ export default function Selection() {
             return (
               <Card
                 key={i}
-                index={i}
                 itemData={n}
                 isActive={i === selected}
                 isDead={n.dead}

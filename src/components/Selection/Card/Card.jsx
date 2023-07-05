@@ -1,17 +1,15 @@
 import clsx from "clsx";
 import { useCallback, useContext } from "react";
 import { SelectionContext } from "@/contexts/SelectionContext";
-
 import CardBorder from "./CardBorder";
-
 import "./Card.scss";
 
-export default function Card({ index, itemData, isActive, isDead }) {
+export default function Card({ itemData, isActive, isDead }) {
   const { setSelected } = useContext(SelectionContext);
 
   const selectCard = useCallback(() => {
-    setSelected(index);
-  }, [index, setSelected]);
+    setSelected((prev) => !prev);
+  }, [setSelected]);
 
   return (
     <div

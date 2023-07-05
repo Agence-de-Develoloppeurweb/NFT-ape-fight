@@ -11,9 +11,9 @@ export default function Filter({ filters }) {
   const updateFilter = useCallback(
     (i) => {
       setFilter(i);
-      setOpen(!open);
+      setOpen((prev) => !prev);
     },
-    [setOpen, setFilter, open]
+    [setOpen, setFilter]
   );
 
   return (
