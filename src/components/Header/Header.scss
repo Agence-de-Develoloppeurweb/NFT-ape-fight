@@ -45,10 +45,22 @@
             &:hover span {
                 animation-play-state: paused;
             }
-        }
 
-        button {
-            grid-column: 9/11;
+            @media (min-height: 600px) {
+                padding: var(--xs-spacing);
+                font-size: 3.2rem;
+            }
+
+            @media (min-height: 768px) {
+                grid-column: 1/12;
+                padding: calc(var(--xs-spacing) + var(--xxs-spacing));
+                font-size: 3.6rem;
+            }
+
+            @media (min-height: 1024px) {
+                padding: var(--md-spacing);
+                font-size: 4.4rem;
+            }
         }
     }
 }

@@ -1,7 +1,7 @@
 .character {
     position: relative;
     grid-column: 6/11;
-    grid-row: 2/3;
+    grid-row: 1/2;
     
     &__container, &__bg {
         position: absolute;
@@ -23,13 +23,28 @@
             justify-content: space-between;
             align-items: center;
             padding: var(--xs-spacing) var(--xs-spacing) 0 0;
+
+            @media (min-height: 600px) {
+                padding: var(--md-spacing) var(--md-spacing) 0 0;
+            }
+
+            @media (min-height: 768px) {
+                bottom: calc(25% + (var(--xlg-spacing) + var(--md-spacing)) + 2px);
+            }
+
+            // @media (min-height: 600px) {
+            //     bottom: calc(25% + var(--xs-spacing) + var(--md-spacing) + 2px);
+            // }
         }
 
         & .fighter__splashart {
             position: absolute;
-            inset: 0;
-            background-position: center left;
-            background-size: contain;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 65%;
+            background-position: center right;
+            background-size: cover;
             background-repeat: no-repeat;
             transform: scaleX(-1);
             z-index: -1;
@@ -53,10 +68,18 @@
 
             & .detail__name {
                 font-size: 2.2rem;
+
+                @media (min-height: 600px) {
+                    font-size: 3rem;
+                }
             }
 
             & .detail__id {
                 font-size: 1.4rem;
+
+                @media (min-height: 600px) {
+                    font-size: 2.2rem;
+                }
             }
         }
 
@@ -67,6 +90,10 @@
 
             img {
                 height: 100%;
+            }
+
+            @media (min-height: 600px) {
+                margin-right: var(--lg-spacing);
             }
         }
     }
@@ -88,24 +115,51 @@
         justify-content: space-between;
         align-items: center;
         overflow-x: auto;
+        padding-left: calc(35%/4);
+
+        @media(min-height: 768px) {
+            bottom: calc( var(--xlg-spacing) + var(--md-spacing));
+        }
 
         & .stats__passive {
-            flex: 1;
+            flex: 0;
             height: 100%;
             display: flex;
             justify-content: flex-end;
             align-items: center;
             padding: var(--xxs-spacing);
 
+            @media (min-height: 600px) {
+                padding: var(--xs-spacing);
+            }
+
+            @media (min-height: 768px) {
+                flex: 1;
+                flex-direction: column;
+                justify-content: center;
+            }
+
             h3 {
                 font-size: 1.4rem;
                 text-align: right;
                 font-weight: normal;
                 text-transform: uppercase;
+
+                @media (min-height: 768px) {
+                    font-size: 1.6rem;
+                    width: 100%;
+                    margin-bottom: var(--xxs-spacing);
+                }
             }
 
             p {
                 display: none;
+
+                @media (min-height: 768px) {
+                    display: flex;
+                    font-size: 1.2rem;
+                    text-align: right;
+                }
             }
         }
 
@@ -116,49 +170,31 @@
         }
 
         & .stats__characteristics {
-            flex: 1;
+            //flex: 3;
             height: 100%;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(2, 1fr);
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            flex-grow: 2;
+            justify-content: center;
+            align-items: stretch;
             gap: var(--xxs-spacing);
             padding: var(--xxs-spacing);
-            align-self: center;
-            align-items: center;
-        }
-    }
-}
 
-.ReactModal__Overlay.passive {
-    position: fixed;
-    inset: 0px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 20;
-    background-color: rgb(20 21 25 / 40%) !important;
+            @media (min-height: 600px) {
+                gap: var(--xs-spacing);
+                padding: var(--xs-spacing);
+            }
 
-    .ReactModal__Content {
-        inset: auto!important;
-        max-width: 50%;
-        text-transform: uppercase;
-        border-radius: 0!important;
-        text-align: center;
-
-        h3 {
-            font-size: 1.6rem;
-            font-weight: normal;
+            @media (min-height: 768px) {
+                flex: 2;
+                gap: var(--xs-spacing);
+                padding: var(--xs-spacing);
+            }
         }
 
-        .underline {
-            margin: 10px auto 20px;
-            width: 50%;
-            height: 2px;
-            background-color: var(--dark);
-        }
-
-        p {
-            font-size: 1.2rem;
-        }
+        // @media (min-height: 600px) {
+        //     margin-bottom: var(--md-spacing);
+        // }
     }
 }

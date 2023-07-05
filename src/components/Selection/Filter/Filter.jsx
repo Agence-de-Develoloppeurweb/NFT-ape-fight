@@ -16,7 +16,7 @@ export default function Filter({ filters }) {
 
     return (
         <div className="filter__container">
-            <div className="filter">
+            <div className={clsx("filter", open && "--open")}>
 
                 <div className="filter__selected" onClick={() => setOpen(!open)}>
                     <img src={filters[filter].icon} alt="filter icon" />
@@ -26,7 +26,7 @@ export default function Filter({ filters }) {
                     </div>
                 </div>
 
-                <div className={clsx("filter__dropdown", open && "--open")}>
+                <div className="filter__dropdown">
 
                     {filters.map( (n, i) => {
                         if(i !== filter){

@@ -44,24 +44,28 @@ function App() {
       </Modal>
 
       <FullScreen handle={handle}>
-    
-        <div style={{position: 'fixed', inset:0}}>test</div>
 
-        {Array.from({ length: 5 }).map( (n, i) => {
-            return (
-              <div key={i} className="bg__col" onClick={() => setDisclaimer(!disclaimer)}></div>
-            );        
-        })} 
         <div className="bg__img"></div>
+        <div className="col__container">
+          {Array.from({ length: 5 }).map( (n, i) => {
+              return (
+                <div key={i} className="bg__col" onClick={() => setDisclaimer(!disclaimer)}></div>
+              );        
+          })} 
+        </div>
 
-        <SelectionProvider>
-          <TabsProvider>
-            <Header />
-            <Selection />
-          </TabsProvider>
-          
-          <Fighter />
-        </SelectionProvider>
+        {/* <div className="fullscreen__container"> */}
+          <SelectionProvider>
+            <TabsProvider>
+              <Header />
+              <div className="fullscreen__container">
+                <Selection />
+                <Fighter />
+              </div>
+            </TabsProvider>
+          </SelectionProvider>
+        {/* </div> */}
+
       </FullScreen>
     </>
   )

@@ -1,9 +1,49 @@
 .stat {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 4px;
     font-size: 1.2rem;
+    min-height: 35%;
+    max-height: calc(50% - (3*var(--xxs-spacing)/2));
+
+    @media (min-height: 600px) {
+        grid-template-rows: repeat(2, 1fr);
+    }
+
+    &__numbers {
+        grid-column: 2/4;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 4px;
+
+        @media (min-height: 600px) {
+            font-size: 1.6rem;
+            grid-row: 1/2;
+            align-items: flex-end;
+        }
+    }
+
+    &__icon {
+        grid-column: 1/2;
+        align-self: center;
+
+        @media (min-height: 600px) {
+            grid-row: 1/3;
+        }
+    }
+
+    &__name {
+        display: none;
+        grid-column: 2/4;
+        grid-row: 2/3;
+        text-transform: uppercase;
+        height: min-content;
+
+        @media (min-height: 600px) {
+            display: block;
+        }
+    }
 
     &__brackets {
         color: var(--green);

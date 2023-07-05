@@ -118,7 +118,7 @@ const generateFighters = (n) => {
             },
             passive: {
                 name: uniqueNamesGenerator(customConfig),
-                description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+                description: 'EACH TURN HAS A 1/10 CHANCE OF NOT RECEIVING DAMAGE FROM THE ENEMY'
             }
         }
 
