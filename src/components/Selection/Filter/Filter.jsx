@@ -1,20 +1,22 @@
-import { useState } from 'react'
-import clsx from 'clsx'
+import { useCallback, useState } from "react";
+import clsx from "clsx";
 
-import Dropdown from '@/assets/img/icon/dropdown.svg'
-import './Filter.scss'
+import Dropdown from "@/assets/img/icon/dropdown.svg";
+import "./Filter.scss";
 
 export default function Filter({ filters }) {
+  const [open, setOpen] = useState(false);
+  const [filter, setFilter] = useState(0);
 
-    const [open, setOpen] = useState(false);
-    const [filter, setFilter] = useState(0);
+  const updateFilter = useCallback(
+    (i) => {
+      setFilter(i);
+      setOpen(!open);
+    },
+    [setOpen, setFilter, open]
+  );
 
-    const updateFilter = (i) => {
-        setFilter(i)
-        setOpen(!open)
-    }
-
-    return (
+return (
         <div className="filter__container">
             <div className={clsx("filter", open && "--open")}>
 
