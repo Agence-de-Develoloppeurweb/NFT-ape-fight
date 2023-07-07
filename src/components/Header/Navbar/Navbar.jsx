@@ -9,15 +9,15 @@ import './Navbar.scss'
 
 export default function Navbar() {
 
-  const { currentTab, updateTabs } = useContext(TabsContext);
-  const { fighters, selected } = useContext(SelectionContext);
+  const { currentTab, nextStep, backStep } = useContext(TabsContext);
+  const { isActive } = useContext(SelectionContext);
 
   return (
     <>
       { currentTab > 0 &&
         <button 
           className="navbar__btn --back"
-          onClick={() => updateTabs(currentTab - 1)}
+          onClick={() => backStep(currentTab - 1)}
         >
           <img src={GoBack} alt="go back" />
         </button>
@@ -32,10 +32,11 @@ export default function Navbar() {
                   key={i}
                   className={clsx(
                     "navbar__btn", 
-                    i === currentTab && "current", 
-                    !fighters[selected].dead && "active"
+                    i === currentTab && "current",
+                    currentTab >= i && isActive(i) && "active"
                   )}
-                  onClick={() => updateTabs(currentTab + 1)}
+                  disabled={i > currentTab}
+                  onClick={() => i >= currentTab ? nextStep() : backStep(i)}
                 >
                   <img src={n.icon} alt={n.alt} />
                 </button>

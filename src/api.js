@@ -32,26 +32,31 @@ const filters = [
     }
 ]
 
-const slots = [
+const itemsType = [
     {
         name: 'helmet',
-        icon: 'src/assets/img/icon/paw.svg'
+        icon: 'src/assets/img/icon/paw.svg',
+        bg: '#00a5da'
     },
     {
         name: 'armor',
-        icon: 'src/assets/img/icon/paw.svg'
+        icon: 'src/assets/img/icon/paw.svg',
+        bg: '#6017d1'
     },
     {
         name: 'weapon',
-        icon: 'src/assets/img/icon/paw.svg'
+        icon: 'src/assets/img/icon/paw.svg',
+        bg: '#222035'
     },
     {
         name: 'potion',
-        icon: 'src/assets/img/icon/paw.svg'
+        icon: 'src/assets/img/icon/paw.svg',
+        bg: '#ffa037'
     },
     {
         name: 'pet',
-        icon: 'src/assets/img/icon/paw.svg'
+        icon: 'src/assets/img/icon/paw.svg',
+        bg: '#f2504f'
     }
 ]
 
@@ -129,10 +134,28 @@ const generateFighters = (n) => {
     return fighters;
 }
 
+const generateItems = (n) => {
+
+    let items = [];
+
+    for(let i = 0; i <= n; i++){
+        let rand = Math.floor(Math.random()*itemsType.length);
+        let item = {
+            type: itemsType[rand].name,
+            name: uniqueNamesGenerator(customConfig),
+            bg: itemsType[rand].bg
+        };
+        items.push(item);
+    }
+
+    return items;
+}
+
 export {
     btns,
     filters,
-    slots,
+    itemsType,
     stats,
-    generateFighters
+    generateFighters,
+    generateItems
 }

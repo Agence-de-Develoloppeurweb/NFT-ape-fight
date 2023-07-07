@@ -197,4 +197,14 @@
         //     margin-bottom: var(--md-spacing);
         // }
     }
+
+    &.--dead {
+        .character__container {
+            filter: grayscale(0.85);
+        }
+
+        .character__stats {
+            filter: grayscale(0.85);
+        }
+    }
 }

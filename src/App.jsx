@@ -2,8 +2,8 @@ import { useCallback, useState } from "react";
 import { TabsProvider } from "./contexts/TabsContext";
 import { SelectionProvider } from "./contexts/SelectionContext";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
+import { isDesktop } from 'react-device-detect';
 import UseScreenOrientation from "react-hook-screen-orientation";
-import useMediaQuery from "./hooks/useMediaQuery";
 
 import Fighter from "./components/Character/Character";
 import Header from "./components/Header/Header";
@@ -11,7 +11,7 @@ import Selection from "./components/Selection/Selection";
 import Modal from "./components/Modal/Modal";
 
 function App() {
-  const isDesktop = useMediaQuery("(min-width: 64em)");
+
   const screenOrientation = UseScreenOrientation();
   const [disclaimer, setDisclaimer] = useState(true);
   const handle = useFullScreenHandle();
@@ -28,7 +28,6 @@ function App() {
     <>
       <Modal
         isOpen={!isDesktop && (screenOrientation.includes('portrait') || !handle.active)}
-        //isOpen={!isDesktop && disclaimer}
         setIsOpen={(i) => handleDisclaimer(i)}
         classes="welcome"
       >
@@ -38,7 +37,7 @@ function App() {
 
         {screenOrientation.includes("portrait") ? (
           <p>
-            turn your phone. <br />
+            turn your device. <br />
             you have to be in landscape mode to continue
           </p>
         ) : (

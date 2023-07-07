@@ -45,6 +45,10 @@
         overflow: hidden;
         cursor: pointer;
 
+        &:disabled {
+            cursor: not-allowed;
+        }
+
         &:not(.current) {
             display: none;
 
@@ -86,7 +90,7 @@
             }
         }
 
-        &:last-child {
+        &:last-child.active {
             background: linear-gradient(to bottom right, #EDB116 0%, rgba(237, 177, 22, 0.56) 50%) bottom right / 50% 50% no-repeat, linear-gradient(to bottom left, #EDB116 0%, rgba(237, 177, 22, 0.56) 50%) bottom left / 50% 50% no-repeat, linear-gradient(to top left, #EDB116 0%, rgba(237, 177, 22, 0.56) 50%) top left / 50% 50% no-repeat, linear-gradient(to top right, #EDB116 0%, rgba(237, 177, 22, 0.56) 50%) top right / 50% 50% no-repeat;
             box-shadow: 0px 0px 50px 10px rgba(237, 177, 22, 0.25);
         }

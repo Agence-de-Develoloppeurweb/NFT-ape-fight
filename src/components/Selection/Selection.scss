@@ -57,12 +57,8 @@
         grid-template-columns: repeat(auto-fit, calc((100% - 4*var(--xs-spacing)) / 5));
         gap: var(--xs-spacing);
 
-        // @media (min-height: 600px) {
-        //     margin-bottom: var(--md-spacing);
-        // }
-    }
-
-    @media(min-height: 768px) {
-        margin-bottom: calc(var(--xlg-spacing) + var(--xs-spacing));
+        @media(min-height: 768px) {
+            margin-bottom: calc(var(--xlg-spacing) + var(--xs-spacing));
+        }
     }
 }

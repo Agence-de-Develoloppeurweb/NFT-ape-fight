@@ -11,7 +11,7 @@ export default function Header() {
     "pick some stuff",
     <span key={1}>
       start <span className="gold">fight !</span>
-    </span>,
+    </span>
   ];
   const { currentTab } = useContext(TabsContext);
 
