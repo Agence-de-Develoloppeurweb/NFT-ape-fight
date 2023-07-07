@@ -1,6 +1,5 @@
 import { useState, useRef } from "react";
 import { generateFighters, generateItems } from "@/api";
-import { useCallback } from "react";
 
 export default function useSelection() {
 
@@ -25,7 +24,6 @@ export default function useSelection() {
   }
 
   const isActive = (i) => {
-    console.log(i, 'isActive')
     switch(i){
       case 0:
         return !fighters[selectedFighter].dead

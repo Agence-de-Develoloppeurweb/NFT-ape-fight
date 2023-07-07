@@ -6,10 +6,8 @@ export default function useTabs() {
   const [currentTab, setCurrentTab] = useState(0);
 
   const updateTabs = useCallback((i) => {
-    console.log(currentTab, i)
     setLastTab(currentTab);
     setCurrentTab(i);
-    console.log(currentTab, 'là')
   }, [currentTab]);
 
   return {

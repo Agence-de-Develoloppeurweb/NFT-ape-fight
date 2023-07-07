@@ -10,10 +10,8 @@ export function TabsProvider({ children }) {
   const { fighters, selectedFighter, selectedItems } = useContext(SelectionContext);
 
   const nextStep = () => {
-    console.log(currentTab)
     switch(currentTab){
       case 0:
-        console.log(fighters[selectedFighter].dead)
         if(fighters[selectedFighter].dead) return false
         break;
 
@@ -24,8 +22,6 @@ export function TabsProvider({ children }) {
       default:
         break;
     }
-
-    console.log('ici')
     updateTabs(currentTab + 1)
   }
 
